@@ -19,3 +19,5 @@ Where Prometheus is better:
 - If you're primarily doing metrics.
 - More powerful query language, alerting, and notification functionality.
 - Higher availability and uptime for graphing and alerting.
+
+https://www.robustperception.io/translating-between-monitoring-languages
