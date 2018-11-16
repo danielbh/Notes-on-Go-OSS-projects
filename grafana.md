@@ -9,3 +9,5 @@ This will require a quick review of oauth and some other research:
 - [x] https://oauth.net/2/
 - [ ] https://github.com/golang/oauth2
 - [ ] https://medium.com/@darutk/diagrams-and-movies-of-all-the-oauth-2-0-flows-194f3c3ade85
+
+configure oauth for grafana to test: http://docs.grafana.org/auth/google/
