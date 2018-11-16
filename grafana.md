@@ -6,5 +6,5 @@ This looks like a good first issue to check out: https://github.com/grafana/graf
 
 This will require a quick review of oauth and some other research: 
 
-[ ] https://oauth.net/2/
-[ ] https://github.com/golang/oauth2
+- [ ] https://oauth.net/2/
+- [ ] https://github.com/golang/oauth2
