@@ -23,3 +23,13 @@ Looking for new issues...
  
  - https://github.com/grafana/grafana/issues/14076
  - https://github.com/grafana/grafana/issues/13612 (This one suggests there is plugin work that needs to be done)
+-  https://github.com/grafana/grafana/issues/13055
+
+*** 
+
+Security issue when resetting password: https://github.com/grafana/grafana/issues/14076
+
+This one looks very straightforward. 
+
+From Issue: 
+> The admin password is being set on a command line argument. This command might be saved on bash history and it can be a security issue. We could instead get the password from stdin.
