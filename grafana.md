@@ -35,8 +35,6 @@ From Issue:
 > The admin password is being set on a command line argument. This command might be saved on bash history and it can be a security issue. We could instead get the password from stdin.
 
 - [ ] Replicate issue
-- [x] Go through thought process on how this could be leveraged as a security vulnerabillity. 
-
-*How you would do this is to exec into that machine as that user then run "history" command and read past commands." This would be an issue in a on an non containerized machine, but could cause issues if you did something like this: https://stackoverflow.com/questions/28279862/docker-and-bash-history . Where you save bash history in a volume. In a containerized environment this could definitely be a security issue. I don't think you would want to save the bash history that often in this example but it is still a vector that could be avoided.*
+- [x] Go through thought process on how this could be leveraged as a security vulnerabillity. *How you would do this is to exec into that machine as that user then run "history" command and read past commands." This would be an issue in a on an non containerized machine, but could cause issues if you did something like this: https://stackoverflow.com/questions/28279862/docker-and-bash-history . Where you save bash history in a volume. In a containerized environment this could definitely be a security issue. I don't think you would want to save the bash history that often in this example but it is still a vector that could be avoided.*
 
 
