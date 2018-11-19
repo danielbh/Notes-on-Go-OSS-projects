@@ -33,3 +33,8 @@ This one looks very straightforward.
 
 From Issue: 
 > The admin password is being set on a command line argument. This command might be saved on bash history and it can be a security issue. We could instead get the password from stdin.
+
+- [ ] Replicate issue
+- [ ] Read up on best security practices with bash history. Go through thought process on how this could be leveraged as a security vulnerabillity.
+
+
