@@ -5,8 +5,7 @@ Especially because the majority of it is written in typescript. Additionally Gra
 
 Packages I'd like to understand:
 
-[bus package](https://github.com/grafana/grafana/tree/b47a4954c9b0208869298c75e97c212430565f1e/pkg/bus)
- - This some type of event bus. Interesting use of interfaces and reflection. I love that it's four years old, but the syntax is not out of date (AFAICT).
+[bus package](https://github.com/grafana/grafana/tree/b47a4954c9b0208869298c75e97c212430565f1e/pkg/bus): This some type of event bus. Interesting use of interfaces and reflection. I love that it's four years old, but the syntax is not out of date (AFAICT).
 
 *** 
 
