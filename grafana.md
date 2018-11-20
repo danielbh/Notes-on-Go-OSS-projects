@@ -7,6 +7,9 @@ Packages I'd like to understand:
 
 [bus package](https://github.com/grafana/grafana/tree/b47a4954c9b0208869298c75e97c212430565f1e/pkg/bus): This some type of event bus. Interesting use of interfaces and reflection. I love that it's four years old, but the syntax is not out of date (AFAICT). [Created a fork here for experimenting](https://github.com/danielbh/go-event-bus/tree/master). This package appears to be central to grafana as seen in this [search for "bus" in the grafana repo](https://github.com/grafana/grafana/search?utf8=%E2%9C%93&q=bus&type=). Central to the bus package is reflect and context packages.They instantiate a single instance of a "global bus". This instance is persisted across all packages. [It also looks like they do not like this](https://github.com/grafana/grafana/blob/master/pkg/bus/bus.go#L67). Funny how its been used for 4 years, and the last mention of it not being good in the comment was 7 months ago.
 
+- [repl.it for reflect struct example they are using for messages](https://repl.it/@danielbh/reflect-struct)
+- [repl.it for reflect func example they are using for messages](https://repl.it/@danielbh/reflect-func)
+
 *** 
 
 This looks like a good first issue to check out: https://github.com/grafana/grafana/issues/13924
