@@ -56,4 +56,7 @@ This is great for onboarding to the project. Going to try to knock a few of thes
 
 This one claims that an HTTP request to pause all alerts is incorrectly documented. It accepts an authenthetication request with username and password instead of a generated Bearer token. This is great, because now it's exposing me to all the different the http api features grafana has. Great opportunity as a side quest to find something that might be missing.
 
+MR submitted: https://github.com/grafana/grafana/pull/14194
+
+*** 
 
