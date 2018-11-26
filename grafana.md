@@ -2,6 +2,7 @@ Grafana looks like a good first project to get more exposure into Go.
 Especially because the majority of it is written in typescript. Additionally Grafana is a very popular project with a lot of companies using it as a dashboard.
 
 [Help Wanted Labels for Grafana](https://github.com/grafana/grafana/labels/help%20wanted)
+[Beginner Friendly](https://github.com/grafana/grafana/labels/beginner%20friendly)
 
 Packages I'd like to understand:
 
