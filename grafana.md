@@ -29,7 +29,7 @@ configure oauth for grafana to test: http://docs.grafana.org/auth/google/
  
 Looking for new issues...
  
- - https://github.com/grafana/grafana/issues/14076
+ - ~https://github.com/grafana/grafana/issues/14076~
  - https://github.com/grafana/grafana/issues/13612 (This one suggests there is plugin work that needs to be done)
 -  https://github.com/grafana/grafana/issues/13055
 
@@ -45,4 +45,4 @@ From Issue:
 - [ ] Replicate issue
 - [x] Go through thought process on how this could be leveraged as a security vulnerabillity. *How you would do this is to exec into that machine as that user then run "history" command and read past commands." This would be an issue in a on an non containerized machine, but could cause issues if you did something like this: https://stackoverflow.com/questions/28279862/docker-and-bash-history . Where you save bash history in a volume. In a containerized environment this could then definitely be a security issue, that would persist past the lifetime of the container. I don't think you would want to save the bash history that often in this example but it is still a vector that could be avoided.*
 
-
+MR in progress: https://github.com/grafana/grafana/pull/14193
