@@ -30,7 +30,7 @@ configure oauth for grafana to test: http://docs.grafana.org/auth/google/
 Looking for new issues...
  
  - ~https://github.com/grafana/grafana/issues/14076~
- - https://github.com/grafana/grafana/issues/13612 (This one suggests there is plugin work that needs to be done)
+ - ~https://github.com/grafana/grafana/issues/13612 (This one suggests there is plugin work that needs to be done)~
 -  https://github.com/grafana/grafana/issues/13055
 
 *** 
