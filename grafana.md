@@ -47,3 +47,13 @@ From Issue:
 - [x] Go through thought process on how this could be leveraged as a security vulnerabillity. *How you would do this is to exec into that machine as that user then run "history" command and read past commands." This would be an issue in a on an non containerized machine, but could cause issues if you did something like this: https://stackoverflow.com/questions/28279862/docker-and-bash-history . Where you save bash history in a volume. In a containerized environment this could then definitely be a security issue, that would persist past the lifetime of the container. I don't think you would want to save the bash history that often in this example but it is still a vector that could be avoided.*
 
 MR in progress: https://github.com/grafana/grafana/pull/14193
+
+*** 
+
+Started looking at [beginner friendly issues](https://github.com/grafana/grafana/labels/beginner%20friendly)
+
+This is great for onboarding to the project. Going to try to knock a few of these out starting with this one: https://github.com/grafana/grafana/issues/14133
+
+This one claims that an HTTP request to pause all alerts is incorrectly documented. It accepts an authenthetication request with username and password instead of a generated Bearer token. This is great, because now it's exposing me to all the different the http api features grafana has. Great opportunity as a side quest to find something that might be missing.
+
+
