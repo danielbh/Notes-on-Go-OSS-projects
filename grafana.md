@@ -83,6 +83,6 @@ So probably here would would check to see if the user in the last admin in the t
 
 But this is camelcase not underscore case... where is the underscore case defined? 
 - Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
-
-
+- CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
+- It is converted by...?
 
