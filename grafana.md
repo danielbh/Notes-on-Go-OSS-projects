@@ -70,7 +70,7 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 ### Able to Replicate?
 
-- [ ] setup local dev
+- [ ] setup build from source
 - [ ] repeat behavior
 - [ ] verify issue in database
 
