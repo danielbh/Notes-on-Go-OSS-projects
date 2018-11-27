@@ -72,7 +72,7 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 - [x] setup run from source
 - [x] connect to database so you can run queries to help with development - using https://sqlitebrowser.org/
-- [ ] replicate bug in app
+- [ ] replicate bug in app (with api)
 - [ ] verify issue in database
 
 ### Notified grafana maintainers and claim issue:
