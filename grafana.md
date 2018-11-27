@@ -72,8 +72,8 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 - [x] setup run from source
 - [x] connect to database so you can run queries to help with development - using https://sqlitebrowser.org/
-- [ ] replicate bug in app (with api)
-- [ ] verify issue in database
+- [x] replicate bug in app (with api)
+- [x] verify issue in database
 
 ### Notified grafana maintainers and claim issue:
 
@@ -104,4 +104,8 @@ But this is camelcase not underscore case... where is the underscore case define
 ### Acceptance tests
 
 - [ ] Try and delete last admin user and fails with correct error message
+
+### Future work
+
+- [ ] Add logs when user is deleted.
 
