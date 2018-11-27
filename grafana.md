@@ -72,6 +72,11 @@ http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. 
 
 `DELETE /api/admin/users/:id`
 
-https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L95 is the handler which is called by...
+is the registered route https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L95 
+is the handler https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L95 
+which calls the `DeleteUserCommand` using bus.Dispatch https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L100
 
-https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L95 is the registered route
+Which triggers the Delete user event handler: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L31
+Which is defined: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L473
+Whose test is here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go#L132
+
