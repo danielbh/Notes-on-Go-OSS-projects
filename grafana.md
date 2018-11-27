@@ -79,3 +79,10 @@ http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. 
 - Which is defined: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L473
 - Whose test is here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go#L132
 
+So probably here would would check to see if the user in the last admin in the table by checking user does not have `is_admin = 1` Confirm this by looking at schema for user table... https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L33
+
+But this is camelcase not underscore case... where is the underscore case defined? 
+- Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
+
+
+
