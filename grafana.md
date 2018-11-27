@@ -64,19 +64,21 @@ https://github.com/grafana/grafana/issues/11067 under help wanted
 
 Block removing super admin permission from last super admin user...
 
-*Issue:* Able to remove admin user as grafana-admin leaving no users with admin permissions to Block removing super admin permission from last super admin user.
+### Issue:
 
-*Able to Replicate?*
+Able to remove admin user as grafana-admin leaving no users with admin permissions to Block removing super admin permission from last super admin user.
+
+### Able to Replicate?
 
 - [ ] setup local dev
 - [ ] repeat behavior
 - [ ] verify issue in database
 
-*Notified grafana maintainers and claim issue:*
+### Notified grafana maintainers and claim issue:
 
-*Is this just frontend or backend? Will errors propogate to front end in UI?*
+### Is this just frontend or backend? Will errors propogate to front end in UI?
 
-*Solution:*
+### Solution:
 
 So if there is an API that means there will be logic that might be used in one or more places. I need to find out where this removal logic is and then provide some type of validation to prevent this action from taking place...
 
