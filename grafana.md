@@ -74,7 +74,7 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 - [x] connect to database so you can run queries to help with development - using https://sqlitebrowser.org/
 - [x] replicate bug in app (with api)
 - [x] verify issue in database
-- [ ] reset to initial state
+- [x] reset to initial state - delete data folder and run setup script again.
 
 ### Notified grafana maintainers and claim issue:
 
