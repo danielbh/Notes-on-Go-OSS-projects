@@ -70,8 +70,8 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 ### Able to Replicate?
 
-- [ ] setup build from source
-- [ ] repeat behavior
+- [ ] setup run from source
+- [ ] replicate bug
 - [ ] verify issue in database
 
 ### Notified grafana maintainers and claim issue:
