@@ -12,7 +12,7 @@ Packages with interesting code patterns:
 - [repl.it for reflect func params example they are using for event listener params](https://repl.it/@danielbh/reflect-func-param)
 - [repl.it for reflect context.Background()](https://repl.it/@danielbh/reflect-context)
 
-[guardian package](https://github.com/grafana/grafana/blob/master/pkg/services/guardian/guardian.go) - some voodoo! They implement/compose an interface (DashboardGuardian) with a struct (dashboardGuardianImpl).
+[guardian package](https://github.com/grafana/grafana/blob/master/pkg/services/guardian/guardian.go) - some voodoo! They implement/compose an interface (DashboardGuardian) with a struct (dashboardGuardianImpl). Since they implement the methods of the DashboardGuardian interface with the struct it's valid.
 
 *** 
 
