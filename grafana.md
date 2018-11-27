@@ -4,13 +4,15 @@ Especially because the majority of it is written in typescript. Additionally Gra
 [Help Wanted Labels for Grafana](https://github.com/grafana/grafana/labels/help%20wanted)
 [Beginner Friendly](https://github.com/grafana/grafana/labels/beginner%20friendly)
 
-Packages I'd like to understand:
+Packages with interesting code patterns:
 
 [bus package](https://github.com/grafana/grafana/tree/b47a4954c9b0208869298c75e97c212430565f1e/pkg/bus): This some type of event bus. Interesting use of interfaces and reflection. I love that it's four years old, but the syntax is not out of date (AFAICT). [Created a fork here for experimenting](https://github.com/danielbh/go-event-bus/tree/master). This package appears to be central to grafana as seen in this [search for "bus" in the grafana repo](https://github.com/grafana/grafana/search?utf8=%E2%9C%93&q=bus&type=). Central to the bus package is reflect and context packages.They instantiate a single instance of a "global bus". This instance is persisted across all packages. [It also looks like they do not like this](https://github.com/grafana/grafana/blob/master/pkg/bus/bus.go#L67). Funny how its been used for 4 years, and the last mention of it not being good in the comment was 7 months ago.
 
 - [repl.it for reflect struct example they are using for messages](https://repl.it/@danielbh/reflect-struct)
 - [repl.it for reflect func params example they are using for event listener params](https://repl.it/@danielbh/reflect-func-param)
 - [repl.it for reflect context.Background()](https://repl.it/@danielbh/reflect-context)
+
+[guardian package](https://github.com/grafana/grafana/blob/master/pkg/services/guardian/guardian.go) - some voodoo! They implement/compose an interface (DashboardGuardian) with a struct (dashboardGuardianImpl).
 
 *** 
 
