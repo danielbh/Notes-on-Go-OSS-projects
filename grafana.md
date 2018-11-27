@@ -60,10 +60,11 @@ MR submitted: https://github.com/grafana/grafana/pull/14194
 
 *** 
 
-Next??
+https://github.com/grafana/grafana/issues/11067 under help wanted
 
-- This looks super interesting: https://github.com/grafana/grafana/issues/3806
-- https://github.com/grafana/grafana/issues/13431
-- https://github.com/grafana/grafana/issues/11067
-- Others??
+Block removing super admin permission from last super admin user...
+
+Able to remove admin user as grafana-admin leaving no users with admin permissions to Block removing super admin permission from last super admin user.
+
+So if there is an API that means there will be logic that might be used in one or more places. I need to find out where this removal logic is and then provide some type of validation to prevent this action from taking place...
 
