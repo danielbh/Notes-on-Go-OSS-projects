@@ -71,3 +71,7 @@ So if there is an API that means there will be logic that might be used in one o
 http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. This will delete a user using basic authentication.
 
 `DELETE /api/admin/users/:id`
+
+https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L95 is the handler which is called by...
+
+https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L95 is the registered route
