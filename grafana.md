@@ -71,7 +71,7 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 ### Able to Replicate?
 
 - [ ] setup run from source
-- [ ] replicate bug
+- [ ] replicate bug in app
 - [ ] verify issue in database
 
 ### Notified grafana maintainers and claim issue:
@@ -99,4 +99,8 @@ But this is camelcase not underscore case... where is the underscore case define
 - Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
 - CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
 - It is converted by...?
+
+### Acceptance tests
+
+- [ ] Try and delete last admin user and fails with correct error message
 
