@@ -68,3 +68,4 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 So if there is an API that means there will be logic that might be used in one or more places. I need to find out where this removal logic is and then provide some type of validation to prevent this action from taking place...
 
+http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. This will delete a user using basic authentication.
