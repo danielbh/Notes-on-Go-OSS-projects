@@ -99,16 +99,20 @@ http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. 
 
 So probably here would would check to see if the user in the last admin in the table by checking user does not have `is_admin = 1` Confirm this by looking at schema for user table... https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L33
 
-But this is camelcase not underscore case... where is the underscore case defined? 
-- Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
-- CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
-- It is converted by...?
 
 #### Acceptance tests
 
 - [ ] Try and delete last admin user and fails with correct error message
 
+#### Future code to understand
+
+- [ ] But isAdmin is camelcase in code not underscore as is inthe database... where is the underscore case defined? 
+    - Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
+    - CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
+    - It is converted by...?
+
 #### Future work
 
 - [ ] Add logs when user is deleted.
+
 
