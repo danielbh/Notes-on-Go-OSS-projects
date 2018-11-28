@@ -84,6 +84,8 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 #### Solution:
 
+*Background and Tracing*
+
 So if there is an API that means there will be logic that might be used in one or more places. I need to find out where this removal logic is and then provide some type of validation to prevent this action from taking place...
 
 http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. This will delete a user using basic authentication.
@@ -99,6 +101,10 @@ http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. 
 
 So probably here would would check to see if the user in the last admin in the table by checking user does not have `is_admin = 1` Confirm this by looking at schema for user table... https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L33
 
+*Discuss Implementation*
+
+- We need to block a delete in [Delete User](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go#L132) or somewhere before.
+- Do we need to do a front end part?
 
 #### Acceptance tests
 
