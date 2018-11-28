@@ -109,6 +109,30 @@ If the last user is attempted to be deleted in grafana you get the following err
 - In the code this is here: https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123. The handler is [removeOrgUserHelper](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L120) This is triggered by 
     - `DELETE /api/org/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L181)
     - `DELETE /api/orgs/:orgId/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L213)
+    
+But how is validation done for this to determine its the last user?
+
+A `RemoveOrgUserCommand` is dispatched to event bus then the command is executed in the sql_store service where a function `RemoveOrgUser` is executed where it deletes the user and does clean-up. Validation is done in this function with [implementation: validateOneAdminInOrg](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/services/sqlstore/org_users.go#L161) [definition: validateOneAdminInOrg](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/services/sqlstore/org_users.go#L205)
+
+*code*:
+
+````go
+
+func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
+	// validate that there is an admin user left
+	res, err := sess.Query("SELECT 1 from org_user WHERE org_id=? and role='Admin'", orgId)
+	if err != nil {
+		return err
+	}
+
+	if len(res) == 0 {
+		return m.ErrLastOrgAdmin
+	}
+
+	return err
+}
+
+````
 
 *Discuss Implementation*
 
