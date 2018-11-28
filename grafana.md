@@ -144,8 +144,8 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 
 #### Work Checklist
 
-- [ ] Get tests running for data
-- [ ] Get tests running for api layer
+- [ ] [Get tests running for data](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go)
+- [ ] [Get tests running for api layer, no tests I can see...](https://github.com/grafana/grafana/tree/master/pkg/api)
 - [ ] Write failing test for data layer
    - [ ] Write in spec to have error message
 - [ ] Make test pass for data layer 
