@@ -108,7 +108,7 @@ So probably here would would check to see if the user in the last admin in the t
 If the last user is attempted to be deleted in grafana you get the following error message: "Cannot remove last organization admin". 
 - In the code this is here: https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123. The handler is [removeOrgUserHelper](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L120) This is triggered by 
     - `DELETE /api/org/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L181)
-    -`DELETE /api/orgs/:orgId/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L213)
+    - `DELETE /api/orgs/:orgId/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L213)
 
 *Discuss Implementation*
 
