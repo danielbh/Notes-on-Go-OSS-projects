@@ -84,7 +84,9 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 
 #### Solution:
 
-*Background and Tracing*
+*Background*
+
+*API Behavior*
 
 So if there is an API that means there will be logic that might be used in one or more places. I need to find out where this removal logic is and then provide some type of validation to prevent this action from taking place...
 
@@ -100,6 +102,13 @@ http://docs.grafana.org/http_api/admin/#delete-global-user this is a good lead. 
 - Whose test is here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go#L132
 
 So probably here would would check to see if the user in the last admin in the table by checking user does not have `is_admin = 1` Confirm this by looking at schema for user table... https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L33
+
+*UI Behavior*
+
+If the last user is attempted to be deleted in grafana you get the following error message: "Cannot remove last organization admin". 
+- In the code this is here: https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123. The handler is [removeOrgUserHelper](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L120) This is triggered by 
+    - `DELETE /api/org/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L181)
+    -`DELETE /api/orgs/:orgId/users/:userId` [handle is registered here](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/api/api.go#L213)
 
 *Discuss Implementation*
 
