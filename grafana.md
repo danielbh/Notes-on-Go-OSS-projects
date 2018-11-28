@@ -142,10 +142,24 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 - [We need validation on the data layer](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L479) much like it is done in the data layer for [removing admins from organizations](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/services/sqlstore/org_users.go#L161)
 - We need to add [validation on the api layer and give a 400](https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L101) like that is [done in remove user from organization api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123)
 
+#### Work Checklist
+
+- [ ] Get tests running for data
+- [ ] Get tests running for api layer
+- [ ] Write failing test for data layer
+   - [ ] Write in spec to have error message
+- [ ] Make test pass for data layer 
+   - [ ] Adapt error message creation like is done in [removeInOrg api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L122)
+- [ ] Refactor code for data layer that makes it pass
+- [ ] Write failing test for api layer
+- [ ] Make tests pass for api layer
+- [ ] Refactor code for data layer that makes it pass
 
 #### Acceptance tests
 
 - [ ] Try and delete last admin user and fails with correct error message
+- [ ] Unit test for deleting user in data layer
+- [ ] Unit test for deleting user in api layer
 
 #### Future code to understand
 
