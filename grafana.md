@@ -136,8 +136,10 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 
 *Discuss Implementation*
 
-- We need to block a delete in [Delete User](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go#L132) or somewhere before.
-- Do we need to do a front end part?
+- [We need validation on the data layer](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L473) much like it is done in the data layer for [removing admins from organizations](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/services/sqlstore/org_users.go#L205)
+- We need to add [validation on the api layer and give a 400](https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L101) like that is [done in remove user from organization api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123)
+- ~Do we need to do a front end part?~ no. frontend is already covered with removeUserFromOrg
+
 
 #### Acceptance tests
 
