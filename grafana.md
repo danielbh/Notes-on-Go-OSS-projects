@@ -14,7 +14,7 @@ Packages with interesting code patterns:
 
 [guardian package](https://github.com/grafana/grafana/blob/master/pkg/services/guardian/guardian.go) - some voodoo! They implement/compose an interface (DashboardGuardian) with a struct (dashboardGuardianImpl). Since they implement the methods of the DashboardGuardian interface with the struct it's valid.
 
-- [goconvey](https://github.com/smartystreets/goconvey/wiki/Web-UI) They are using goconvey to do testing which has a built in web UI for test browsing
+- [goconvey](https://github.com/smartystreets/goconvey/wiki/Web-UI) They are using goconvey to do testing which has a built in web UI for test browsing. Kept running into "Build Failure" issues. For testing a single test go test -run TestCaseName.
 
 *** 
 
