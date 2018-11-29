@@ -14,6 +14,8 @@ Packages with interesting code patterns:
 
 [guardian package](https://github.com/grafana/grafana/blob/master/pkg/services/guardian/guardian.go) - some voodoo! They implement/compose an interface (DashboardGuardian) with a struct (dashboardGuardianImpl). Since they implement the methods of the DashboardGuardian interface with the struct it's valid.
 
+- [goconvey](https://github.com/smartystreets/goconvey/wiki/Web-UI) They are using goconvey to do testing which has a built in web UI for test browsing
+
 *** 
 
 This looks like a good first issue to check out: https://github.com/grafana/grafana/issues/13924
@@ -154,6 +156,7 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 - [ ] Write failing test for api layer
 - [ ] Make tests pass for api layer
 - [ ] Refactor code for data layer that makes it pass
+- [ ] follow this to confirm everything is good: https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md
 
 #### Acceptance tests
 
