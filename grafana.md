@@ -126,24 +126,6 @@ Referrer Policy: no-referrer-when-downgrade
 - [ ] fail test
 - [ ] do query to confirm not admin user
 
-
-#### Work Checklist
-
-- [ ] misunderstood the requirement, they are focused on toggling the admin user not deleting them. Will re-evaluate...
-
-
-- [ ] [Get tests running for data](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go)
-- [x] [Get tests running for api layer, no tests I can see...]
-- [ ] Write failing test for data layer
-   - [ ] Write in spec to have error message
-- [ ] Make test pass for data layer 
-   - [ ] Adapt error message creation like is done in [removeInOrg api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L122)
-- [ ] Refactor code for data layer that makes it pass
-- [ ] Write failing test for api layer
-- [ ] Make tests pass for api layer
-- [ ] Refactor code for data layer that makes it pass
-- [ ] follow this to confirm everything is good: https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md
-
 #### Acceptance tests
 
 - [ ] Try and delete last admin user and fails with correct error message
