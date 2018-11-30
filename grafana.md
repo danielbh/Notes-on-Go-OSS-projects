@@ -83,15 +83,16 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 #### Notified grafana maintainers and claim issue:
 done
 
-#### Is this just frontend or backend? Will errors propogate to front end in UI?
-
-- [ ] Open as a separate issue to do something with the UI to preven this.
 
 #### Solution:
 
 *Background*
 
 Few things to note. There is a difference between grafana admin and org admin. A grafana admin is a super super user. Currently in the UI you can totally
+
+*UI Behavior*
+Ideally there would be a frontend component to this that would prevent someone from removing themselves as a grafana admin as well as an instructive message. A future issue has been noted for the UI.
+
 
 *API Behavior*
 
@@ -106,13 +107,24 @@ Remote Address: [::1]:3000
 Referrer Policy: no-referrer-when-downgrade
 
 ````
-Where does this exist in code?
+*Where does this exist in code?*
 
-*UI Behavior*
-Ideally there would be a frontend component to this that would prevent someone from removing themselves as a grafana admin as well as an instructive message. A future issue has been noted for the UI.
+- api register: https://github.com/grafana/grafana/blob/master/pkg/api/api.go#L371
+- api handler: https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L79
+- data layer handler: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L500
+
+*proposed solution* Do validation on if the user is the last admin and if they are do not allow them to be turned into a peon.
 
 
 #### Implementation
+
+- [ ] test on api handler
+- [ ] fail test
+- [ ] use error message format of error types to check if should return 400
+- [ ] make test pass
+- [ ] test on data layer
+- [ ] fail test
+- [ ] do query to confirm not admin user
 
 
 #### Work Checklist
