@@ -81,8 +81,89 @@ Able to remove admin user as grafana-admin leaving no users with admin permissio
 - [x] reset to initial state - delete data folder and run setup script again.
 
 #### Notified grafana maintainers and claim issue:
+done
 
 #### Is this just frontend or backend? Will errors propogate to front end in UI?
+
+- [ ] Open as a separate issue to do something with the UI to preven this.
+
+#### Solution:
+
+*Background*
+
+Few things to note. There is a difference between grafana admin and org admin. A grafana admin is a super super user. Currently in the UI you can totally
+
+*API Behavior*
+
+Need to investigate how this works... below is the attached request done in the local development environment that succeeds in removing someone as an admin.
+
+````markdown
+
+Request URL: http://localhost:3000/api/admin/users/1/permissions
+Request Method: PUT
+Status Code: 200 OK
+Remote Address: [::1]:3000
+Referrer Policy: no-referrer-when-downgrade
+
+````
+Where does this exist in code?
+
+*UI Behavior*
+Ideally there would be a frontend component to this that would prevent someone from removing themselves as a grafana admin as well as an instructive message. A future issue has been noted for the UI.
+
+
+#### Implementation
+
+
+#### Work Checklist
+
+- [ ] misunderstood the requirement, they are focused on toggling the admin user not deleting them. Will re-evaluate...
+
+
+- [ ] [Get tests running for data](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go)
+- [x] [Get tests running for api layer, no tests I can see...]
+- [ ] Write failing test for data layer
+   - [ ] Write in spec to have error message
+- [ ] Make test pass for data layer 
+   - [ ] Adapt error message creation like is done in [removeInOrg api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L122)
+- [ ] Refactor code for data layer that makes it pass
+- [ ] Write failing test for api layer
+- [ ] Make tests pass for api layer
+- [ ] Refactor code for data layer that makes it pass
+- [ ] follow this to confirm everything is good: https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md
+
+#### Acceptance tests
+
+- [ ] Try and delete last admin user and fails with correct error message
+- [ ] Unit test for deleting user in data layer
+- [ ] Unit test for deleting user in api layer
+
+#### Future code to understand
+
+- [ ] But isAdmin is camelcase in code not underscore as is inthe database... where is the underscore case defined? 
+    - Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
+    - CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
+    - It is converted by...?
+
+***
+
+New Issue that could be proposed
+
+- [ ] prevent admin user from being deleted from API: 
+
+#### Able to Replicate?
+
+- [x] setup run from source
+- [x] connect to database so you can run queries to help with development - using https://sqlitebrowser.org/
+- [x] replicate bug in app (with api)
+- [x] verify issue in database
+- [x] reset to initial state - delete data folder and run setup script again.
+
+#### Notified grafana maintainers and claim issue:
+done
+
+#### Is this just frontend or backend? Will errors propogate to front end in UI?
+none
 
 #### Solution:
 
@@ -141,41 +222,9 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 
 #### Implementation
 
-- [We need validation on the data layer](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L479) much like it is done in the data layer for [removing admins from organizations](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/services/sqlstore/org_users.go#L161)
-- We need to add [validation on the api layer and give a 400](https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L101) like that is [done in remove user from organization api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123)
+   - [We need validation on the data layer](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L479) much like it is done in the data layer for [removing admins from organizations](https://github.com/grafana/grafana/blob/9cc6c2128a8cca647e31a2d6e4d41603b9245995/pkg/services/sqlstore/org_users.go#L161)
+   - We need to add [validation on the api layer and give a 400](https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L101) like that is [done in remove user from organization api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L123)
 
-#### Work Checklist
+***
 
-- [ ] misunderstood the requirement, they are focused on toggling the admin user not deleting them. Will re-evaluate...
-
-
-- [ ] [Get tests running for data](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go)
-- [x] [Get tests running for api layer, no tests I can see...](https://github.com/grafana/grafana/tree/master/pkg/api)
-- [ ] Write failing test for data layer
-   - [ ] Write in spec to have error message
-- [ ] Make test pass for data layer 
-   - [ ] Adapt error message creation like is done in [removeInOrg api](https://github.com/grafana/grafana/blob/master/pkg/api/org_users.go#L122)
-- [ ] Refactor code for data layer that makes it pass
-- [ ] Write failing test for api layer
-- [ ] Make tests pass for api layer
-- [ ] Refactor code for data layer that makes it pass
-- [ ] follow this to confirm everything is good: https://github.com/grafana/grafana/blob/master/CONTRIBUTING.md
-
-#### Acceptance tests
-
-- [ ] Try and delete last admin user and fails with correct error message
-- [ ] Unit test for deleting user in data layer
-- [ ] Unit test for deleting user in api layer
-
-#### Future code to understand
-
-- [ ] But isAdmin is camelcase in code not underscore as is inthe database... where is the underscore case defined? 
-    - Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
-    - CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
-    - It is converted by...?
-
-#### Future work
-
-- [ ] Add logs when user is deleted.
-
-
+UX on toggling admins. The UI should prevent a user from removing themselves as an admin without the need for a backend call.
