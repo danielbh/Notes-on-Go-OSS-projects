@@ -113,7 +113,9 @@ Referrer Policy: no-referrer-when-downgrade
 - api handler: https://github.com/grafana/grafana/blob/master/pkg/api/admin_users.go#L79
 - data layer handler: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L500
 
-*proposed solution* Do validation on if the user is the last admin and if they are do not allow them to be turned into a peon.
+*proposed solution* 
+
+Do validation on if the user is the last admin and if they are do not allow them to be turned into a peon.
 
 
 #### Implementation
