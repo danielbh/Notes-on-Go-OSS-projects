@@ -146,6 +146,9 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 
 #### Work Checklist
 
+- [ ] misunderstood the requirement, they are focused on toggling the admin user not deleting them. Will re-evaluate...
+
+
 - [ ] [Get tests running for data](https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user_test.go)
 - [x] [Get tests running for api layer, no tests I can see...](https://github.com/grafana/grafana/tree/master/pkg/api)
 - [ ] Write failing test for data layer
