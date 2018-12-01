@@ -127,6 +127,9 @@ Do validation on if the user is the last admin and if they are do not allow them
 - [x] use error message format of error types to check if should return 400
 - [x] make test pass
 - [ ] test on data layer
+   - [ ] I need to do a query to count users look at orgRemove it does a count query.
+   - [ ] Does it use an ORM?
+   - [ ] should send m.ErrLastGrafanaAdmin
 - [ ] fail test
 - [ ] do query to confirm not admin user
 
