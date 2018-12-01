@@ -126,16 +126,17 @@ Do validation on if the user is the last admin and if they are do not allow them
 - [x] fail test
 - [x] use error message format of error types to check if should return 400
 - [x] make test pass
-- [ ] test on data layer
-   - [ ] I need to do a query to count users look at orgRemove it does a count query.
-   - [ ] Does it use an ORM?
-   - [ ] should send m.ErrLastGrafanaAdmin
-- [ ] fail test
-- [ ] do query to confirm not admin user
+- [x] test on data layer
+   - [x] I need to do a query to count users look at orgRemove it does a count query.
+   - [x] should send m.ErrLastGrafanaAdmin
+- [x] fail test
+- [x] do query to confirm not admin user
+- [x] create another user and confirm still works
 
 #### Acceptance tests
 
-- [ ] Manually try and delete last admin user and fails with correct error message
+- [x] Manually try and delete last admin user and fails with correct error message
+- [ ] Screenshot showing new behavior
 - [ ] Unit test for deleting user in data layer
 - [x] Unit test for deleting user in api layer
 
@@ -145,6 +146,10 @@ Do validation on if the user is the last admin and if they are do not allow them
     - Our journey starts here: https://github.com/grafana/grafana/blob/master/pkg/services/sqlstore/user.go#L91
     - CreateUserCommand is used: https://github.com/grafana/grafana/blob/master/pkg/models/user.go#L62
     - It is converted by...?
+    
+#### Ticket for later?
+   - [ ] admin cannot remove themselves as an admin
+   - [ ] annoying becuase can still submit if positive result. Might want to blank out form
 
 ***
 
