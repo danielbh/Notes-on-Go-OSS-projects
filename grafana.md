@@ -120,19 +120,21 @@ Do validation on if the user is the last admin and if they are do not allow them
 
 #### Implementation
 
-- [ ] test on api handler
-- [ ] fail test
-- [ ] use error message format of error types to check if should return 400
-- [ ] make test pass
+- [x] test on api handler
+   - [x] create admin scenario
+   - [x] create mocked test of sqlstore
+- [x] fail test
+- [x] use error message format of error types to check if should return 400
+- [x] make test pass
 - [ ] test on data layer
 - [ ] fail test
 - [ ] do query to confirm not admin user
 
 #### Acceptance tests
 
-- [ ] Try and delete last admin user and fails with correct error message
+- [ ] Manually try and delete last admin user and fails with correct error message
 - [ ] Unit test for deleting user in data layer
-- [ ] Unit test for deleting user in api layer
+- [x] Unit test for deleting user in api layer
 
 #### Future code to understand
 
