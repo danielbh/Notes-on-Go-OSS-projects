@@ -234,3 +234,9 @@ func validateOneAdminLeftInOrg(orgId int64, sess *DBSession) error {
 ***
 
 UX on toggling admins. The UI should prevent a user from removing themselves as an admin without the need for a backend call.
+***
+
+12/3/2018: finding more backend help wanted issues that I want to do...
+
+
+
