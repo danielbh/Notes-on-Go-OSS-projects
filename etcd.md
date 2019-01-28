@@ -54,3 +54,18 @@ election timeout
 split vote
 
 - Two nodes both start an election for the same term...
+- ...and each reaches a single follower node before the other.
+- Now each candidate has 2 votes and can receive no more for this term.
+- The nodes will wait for a new election and try again.
+
+log replication- Once we have a leader elected we need to replicate all changes to our system to all nodes. This is done by using the same Append Entries message that was used for heartbeats.
+
+- First a client sends a change to the leader.
+- The change is appended to the leader's log...
+- then the change is sent to the followers on the next heartbeat.
+- An entry is committed once a majority of followers acknowledge it.
+- and a response is sent to the client.
+
+Raft can even stay consistent in the face of network partitions. Partitions can lead to two leaders, one in each partition. When you add a client and try and update one leader. One leader node cannot replicate to a majority so its log entry stays uncommitted. If a client updates and there is a majority, that value will be updated for each node. When a network partition becomes healed, The node with the lower election term will see this and step down. All nodes will roll back their uncommitted entries and match the new leader's log.
+
+
