@@ -15,9 +15,9 @@ Client-Side Streaming: The client sends a stream of multiple requests to the ser
 
 Bidirectional Streaming: In this scenario, the client and the server send information to each other in pretty much free form (except the client initiates the sequence). Eventually, the client closes the connection.
 
-- Strong Typing vs. Serialization: The gRPC service contract has strongly typed messages that are converted automatically from their Protobuf representation to your programming language of choice both on the server and on the client. JSON, on the other hand, is theoretically more flexible because you can send dynamic data and don't have to adhere to a rigid structure. 
+Strong Typing vs. Serialization: The gRPC service contract has strongly typed messages that are converted automatically from their Protobuf representation to your programming language of choice both on the server and on the client. JSON, on the other hand, is theoretically more flexible because you can send dynamic data and don't have to adhere to a rigid structure. 
 
-- browser support: Support for gRPC in the browser is not as mature. Today, gRPC is used primarily for internal services which are not exposed directly to the world. You can use a grpc gateway.
+browser support: Support for gRPC in the browser is not as mature. Today, gRPC is used primarily for internal services which are not exposed directly to the world. You can use a grpc gateway.
 
 [grpc Guide](https://grpc.io/docs/guides/)
 [nginx grpc](https://www.nginx.com/blog/nginx-1-13-10-grpc/)
