@@ -1,0 +1,2 @@
+- [official docs](https://prometheus.io/docs/introduction/overview/)
+- [setup machine monitoring](https://www.youtube.com/watch?v=WUkNnY65htQ)
