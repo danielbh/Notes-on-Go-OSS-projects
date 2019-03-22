@@ -1,2 +1,4 @@
 - [official docs](https://prometheus.io/docs/introduction/overview/)
 - [setup machine monitoring](https://www.youtube.com/watch?v=WUkNnY65htQ)
+   - how to setup on ubuntu
+   - shows prometheus server
