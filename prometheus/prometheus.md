@@ -3,7 +3,7 @@
 [irc](https://riot.im/app/#/room/#prometheus:matrix.org)
 
 #### Pre-reqs
-- [ ] [Contributing Doc](https://github.com/prometheus/prometheus/blob/master/CONTRIBUTING.md)
+- [x] [Contributing Doc](https://github.com/prometheus/prometheus/blob/master/CONTRIBUTING.md)
 - [x] [Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
 
 This seems like a good entry issue: https://github.com/prometheus/prometheus/issues/4935
