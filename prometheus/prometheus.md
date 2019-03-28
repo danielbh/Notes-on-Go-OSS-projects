@@ -9,3 +9,4 @@
 This seems like a good entry issue: https://github.com/prometheus/prometheus/issues/4935
 
 It's good because it will help me understand how to setup Prometheus locally and how to run tests.
+This appearst to be where the issue is: https://github.com/prometheus/prometheus/blob/master/notifier/notifier_test.go#L307
