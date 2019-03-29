@@ -17,4 +17,14 @@ This appearst to be where the issue is: https://github.com/prometheus/prometheus
 
 This seems like an interesting fullstack issue: https://github.com/prometheus/prometheus/issues/3843 
 
-looking into it...
+Currently, the Service Discovery WebUI page lists targets found by service discovery.
+
+I think it'd be useful if it also listed any Alertmanager targets found if the alertmanager configuration uses service discovery...
+
+so first thing ot understand is what is meant by:
+
+"if it also listed any Alertmanager targets found if the alertmanager configuration uses service discovery"
+
+- [x] how do I setup SD in the alert manager? https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery
+
+- [ ] setup local dev environment by adding alert manager... found this: https://github.com/vegasbrianc/prometheus will replace https://github.com/danielbh/prom-go-example 
