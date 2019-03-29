@@ -12,3 +12,9 @@ This seems like a good entry issue: https://github.com/prometheus/prometheus/iss
 
 It's good because it will help me understand how to setup Prometheus locally and how to run tests.
 This appearst to be where the issue is: https://github.com/prometheus/prometheus/blob/master/notifier/notifier_test.go#L307
+
+-- Decided to drop this one. It's too flakey to reproduce. On the plus I have the project running locally. So it was still a good intro to the project. Checking out a new issue...
+
+This seems like an interesting fullstack issue: https://github.com/prometheus/prometheus/issues/3843 
+
+looking into it...
