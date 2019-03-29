@@ -29,4 +29,9 @@ so first thing ot understand is what is meant by:
 
 - [x] setup local dev environment by adding alert manager... found this: https://github.com/vegasbrianc/prometheus will replace https://github.com/danielbh/prom-go-example 
 
-- [ ] setup sd with alert manager locally
+- [ ] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery
+
+- [ ] Make a plan that is aligned with desired spec of displaying in UI
+- [ ] backend
+- [ ] frontend
+- [ ] submit PR
