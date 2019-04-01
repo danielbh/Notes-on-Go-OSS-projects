@@ -62,7 +62,7 @@ so first thing ot understand is what is meant by:
   
   - [This is where we get our "targets" to be rendered](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L209)
   - *TargetsAll* is part of [Manager struct](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L58) which includes some interested utlities. There is a mutex, scrapeConfigs, scrapePools, among other items.
-  - A mutex is created at the beginning of *TargetsAll* signalling we will be doing concurrency in here. 
+  - A mutex is created at the beginning of *TargetsAll* signalling we will be doing concurrency in here.
   - Then it makes a map  of keyed strings with an array of pointers to Targets matchint he length of the current scrapePools.
   - Then it populates each target keying by "target set name" and appends activeTargets and Dropped targets.
   
@@ -73,14 +73,13 @@ so first thing ot understand is what is meant by:
         - *Targets*: A list of targets identified by a label set. Each target is uniquely identifiable in the group by its address label. 
         - *Labels*: A set of labels that is common across all targets in the group.
         - *Source*: An identifier that describes a group of targets
-     - *scrapeConfig*:
+        - *scrapeConfig*:
         
 
      
   #### scrapePool
   
-  
-  - A mutex is created at the beginning of *TargetsAll* signalling we will be doing concurrency in here. Then it makes a map  of keyed strings with an array of pointers to Targets matchint he length of the current scrapePools.
+  Explore now or later?
 
 - [ ] Make a plan that is aligned with desired spec of displaying in UI
 - [ ] backend
