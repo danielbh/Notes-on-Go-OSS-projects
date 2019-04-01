@@ -38,6 +38,8 @@ so first thing ot understand is what is meant by:
   - [here is http handler for web UI of /service-discovery](https://github.com/prometheus/prometheus/blob/master/web/web.go#L287) where it is wrapped in a readf() to test if it's ready
   - the generic handler used in this project is defined [here](https://github.com/prometheus/prometheus/blob/master/web/web.go#L667): It is mounted on a [handler struct](https://github.com/prometheus/prometheus/blob/master/web/web.go#L115), which creates a rather interesting pattern. Each http handler is mounted on this struct which makes available many great utilities, this includes things like, managers (ruleManager, scrapManager): that "manage important functionality". There there is an [options struct](https://github.com/prometheus/prometheus/blob/master/web/web.go#L165) that can be added to this to add config to the handler instance. In any case a lot of time could be spent here as the code here is quite dense.
   
+- [Here is a good example of a Prometheus config](https://github.com/danielbh/prometheus-docker-compose/blob/master/prometheus/prometheus.yml#L28)
+  
   #### ServiceDiscovery handler
   - From here we can observe the actual ServiceDiscovery handler. 
       - [It grabs all sd targets](https://github.com/prometheus/prometheus/blob/master/web/web.go#L669)
@@ -47,7 +49,7 @@ so first thing ot understand is what is meant by:
       - [passes populated scrapConfigData struct into the html template](https://github.com/prometheus/prometheus/blob/master/web/web.go#L705)
       
       - Lets have deeper look at the sd handler and and clarify what a few variables actually are and why they are shaped the way they are.
-        - *target*:When Prometheus scrapes a target, it attaches some labels automatically to the scraped time series which serve to identify the scraped target.
+        - *target*:In this context a better name might have been *scrape_configs*. When Prometheus scrapes a target, it attaches some labels automatically to the scraped time series which serve to identify the scraped target. 
         - *job*: The configured job name that the target belongs to. In Prometheus terms, an endpoint you can scrape is called an instance, usually corresponding to a single process. A collection of instances with the same purpose, a process replicated for scalability or reliability for example, is called a job.
         - *instance*: part of the target's URL that was scraped.
         - *active*: If there are labels for a target it is considered active
@@ -56,7 +58,23 @@ so first thing ot understand is what is meant by:
         
      - [here is the service-discovery template](https://github.com/prometheus/prometheus/blob/master/web/ui/templates/service-discovery.html)
    
+  #### scrapeManager
   
+  - [This is where we get our "targets" to be rendered](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L209)
+  - *TargetsAll* is part of [Manager struct](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L58) which includes some interested utlities. There is a mutex, scrapeConfigs, scrapePools, among other items.
+  - A mutex is created at the beginning of *TargetsAll* signalling we will be doing concurrency in here. 
+  - Then it makes a map  of keyed strings with an array of pointers to Targets matchint he length of the current scrapePools.
+  - Then it populates each target keying by "target set name" and appends activeTargets and Dropped targets.
+  
+  - Lets go deeper into defining what some of these terms mean
+     - [scrapePool](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L121): This is appears to be scraping job run in parallel to get metrics. There is a lot going on here. Will go deeper eventually, only will go now if needed to solve current problem.
+     - tset (key):
+     - tset (value):
+     
+  #### scrapePool
+  
+  
+  - A mutex is created at the beginning of *TargetsAll* signalling we will be doing concurrency in here. Then it makes a map  of keyed strings with an array of pointers to Targets matchint he length of the current scrapePools.
 
 - [ ] Make a plan that is aligned with desired spec of displaying in UI
 - [ ] backend
