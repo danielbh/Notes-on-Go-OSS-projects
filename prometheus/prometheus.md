@@ -34,6 +34,11 @@ so first thing ot understand is what is meant by:
 
 - [ ] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery
 
+- [ ] Observe how targets are added to the UI.
+  - [here is http handler for web UI of /service-discovery](https://github.com/prometheus/prometheus/blob/master/web/web.go#L287) where it is wrapped in a readf() to test if it's ready
+  - [ ] the generic handler used in this project is defined [here](https://github.com/prometheus/prometheus/blob/master/web/web.go#L667): It is mounted on a [handler struct](, which creates a rather interesting pattern. Each handler is mounted on this struct] which makes available many great utilities
+  
+
 - [ ] Make a plan that is aligned with desired spec of displaying in UI
 - [ ] backend
 - [ ] frontend
