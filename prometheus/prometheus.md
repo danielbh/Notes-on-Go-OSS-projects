@@ -8,6 +8,13 @@
 - [x] [Contributing Doc](https://github.com/prometheus/prometheus/blob/master/CONTRIBUTING.md)
 - [x] [Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
 
+
+#### General Development Docs
+
+- [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
+- [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
+- [swagger](https://github.com/prometheus/prometheus/blob/master/documentation/dev/api/swagger.json) 
+
 ---
  #### This seems like a good entry issue: https://github.com/prometheus/prometheus/issues/4935
 
@@ -75,9 +82,9 @@ so first thing ot understand is what is meant by:
         - *Source*: An identifier that describes a group of targets
         - *scrapeConfig*:
      - [New target sets are added in the manager.Run function](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L79)
+     - It appears each discovery submodule implements their own Yaml/JSON marshalling depending on it's purpose.
+     - Just found this nugget after poking around: [Service Discovery Readme](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
         
-        
-
      
   #### scrapePool
   
