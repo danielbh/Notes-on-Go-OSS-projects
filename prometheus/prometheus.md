@@ -45,7 +45,7 @@ so first thing to understand is what is meant by:
   - [here is http handler for web UI of /service-discovery](https://github.com/prometheus/prometheus/blob/master/web/web.go#L287) where it is wrapped in a readf() to test if it's ready
   - the generic handler used in this project is defined [here](https://github.com/prometheus/prometheus/blob/master/web/web.go#L667): It is mounted on a [handler struct](https://github.com/prometheus/prometheus/blob/master/web/web.go#L115), which creates a rather interesting pattern. Each http handler is mounted on this struct which makes available many great utilities, this includes things like, managers (ruleManager, scrapManager): that "manage important functionality". There there is an [options struct](https://github.com/prometheus/prometheus/blob/master/web/web.go#L165) that can be added to this to add config to the handler instance. In any case a lot of time could be spent here as the code here is quite dense.
   
-- [Here is a good example of a Prometheus config](https://github.com/danielbh/prometheus-docker-compose/blob/master/prometheus/prometheus.yml#L28)
+  - [Here is a good example of a Prometheus config](https://github.com/danielbh/prometheus-docker-compose/blob/master/prometheus/prometheus.yml#L28)
   
   #### ServiceDiscovery handler
   - From here we can observe the actual ServiceDiscovery handler. 
