@@ -11,9 +11,9 @@
 
 #### General Development Docs
 
-- [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
-- [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
-- [swagger](https://github.com/prometheus/prometheus/blob/master/documentation/dev/api/swagger.json) 
+- [ ] [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
+- [ ] [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
+- [x] [swagger](https://github.com/prometheus/prometheus/blob/master/documentation/dev/api/swagger.json) 
 
 ---
  #### This seems like a good entry issue: https://github.com/prometheus/prometheus/issues/4935
@@ -31,7 +31,7 @@ Currently, the Service Discovery WebUI page lists targets found by service disco
 
 I think it'd be useful if it also listed any Alertmanager targets found if the alertmanager configuration uses service discovery...
 
-so first thing ot understand is what is meant by:
+so first thing to understand is what is meant by:
 
 "if it also listed any Alertmanager targets found if the alertmanager configuration uses service discovery"
 
@@ -39,7 +39,7 @@ so first thing ot understand is what is meant by:
 
 - [x] setup local dev environment by adding alert manager... found this: https://github.com/vegasbrianc/prometheus will replace https://github.com/danielbh/prom-go-example 
 
-- [ ] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery
+- [ ] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery see if you can combine it with... https://prometheus.io/docs/guides/file-sd/
 
 - [ ] Observe how targets are added to the UI. This is important because we must understand how they are added so that we can cleanly add the alertmanager sd targets.
   - [here is http handler for web UI of /service-discovery](https://github.com/prometheus/prometheus/blob/master/web/web.go#L287) where it is wrapped in a readf() to test if it's ready
