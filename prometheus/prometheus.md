@@ -70,11 +70,12 @@ so first thing ot understand is what is meant by:
      - [scrapePool](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L121): This is appears to be scraping job run in parallel to get metrics. There is a lot going on here. Will go deeper eventually, only will go now if needed to solve current problem.
      - *tset*: Target set map. key is set name. Value is a targetgroup.Group
      - [targetgroup](https://github.com/prometheus/prometheus/blob/master/discovery/targetgroup/targetgroup.go): A set of targets with a common label set(production , test, staging etc.). It also looks like this is the entitly that converts yaml and json to in memory entities. 
-     - [New target sets are added in the manager.Run function](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L79)
         - *Targets*: A list of targets identified by a label set. Each target is uniquely identifiable in the group by its address label. 
         - *Labels*: A set of labels that is common across all targets in the group.
         - *Source*: An identifier that describes a group of targets
         - *scrapeConfig*:
+     - [New target sets are added in the manager.Run function](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L79)
+        
         
 
      
