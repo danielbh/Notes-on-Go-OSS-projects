@@ -13,6 +13,7 @@
 - [ ] [godoc](https://godoc.org/github.com/prometheus/prometheus)
 - [ ] [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
 - [ ] [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
+  - Prometheus will call the Run() method on a provider to initialize the discovery mechanism. The mechanism will then send all the target groups into the channel. Now the mechanism will watch for changes. For each update it can send all target groups, or only changed and new target groups, down the channel. Manager will handle both cases.
 - [x] [swagger](https://github.com/prometheus/prometheus/blob/master/documentation/dev/api/swagger.json) 
 
 ---
