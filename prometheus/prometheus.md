@@ -9,7 +9,7 @@
 - [x] [Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
 
 
-#### General Development Docs
+#### Official Docs
 - [ ] [godoc](https://godoc.org/github.com/prometheus/prometheus)
 - [ ] [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
 - [x] [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
@@ -40,9 +40,9 @@ so first thing to understand is what is meant by:
 
 - [x] setup local dev environment by adding alert manager... found this: https://github.com/vegasbrianc/prometheus will replace https://github.com/danielbh/prom-go-example 
 
-- [ ] How can I visually see that alert manager is successfully connected?
+- [x] How can I visually see that alert manager is successfully connected? It shows up in http://localhost:9090/status under "Alertmanagers" It does the same thing when you do service discovery.
 
-- [ ] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery see if you can combine it with... https://prometheus.io/docs/guides/file-sd/
+- [x] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery see if you can combine it with... https://prometheus.io/docs/guides/file-sd/
 
 - [ ] Observe how targets are added to the UI. This is important because we must understand how they are added so that we can cleanly add the alertmanager sd targets.
   - [here is http handler for web UI of /service-discovery](https://github.com/prometheus/prometheus/blob/master/web/web.go#L287) where it is wrapped in a readf() to test if it's ready
