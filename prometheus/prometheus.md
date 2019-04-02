@@ -11,8 +11,8 @@
 
 #### General Development Docs
 
-- [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
 - [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
+- [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
 - [swagger](https://github.com/prometheus/prometheus/blob/master/documentation/dev/api/swagger.json) 
 
 ---
