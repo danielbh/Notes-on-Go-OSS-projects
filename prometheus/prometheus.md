@@ -85,7 +85,7 @@ so first thing to understand is what is meant by:
      - It appears each discovery submodule implements their own Yaml/JSON marshalling depending on it's purpose.
      - Just found this nugget after poking around: [Service Discovery Readme](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
     
-Based on [internal architecture diagram](https://github.com/prometheus/prometheus/blob/master/documentation/images/internal_architecture.svg) It seems that alert manager service discovery is generated via "Notifier" discovery. This means it might be connected completely differently then normal service discovery, and might need UI customization. Need to investigate further.
+    Based on [internal architecture diagram](https://github.com/prometheus/prometheus/blob/master/documentation/images/internal_architecture.svg) It seems that alert manager service discovery is generated via "Notifier" discovery. This means it might be connected completely differently then normal service discovery, and might need UI customization. Need to investigate further.
 
 - [ ] Make a plan that is aligned with desired spec of displaying in UI
 - [ ] backend
