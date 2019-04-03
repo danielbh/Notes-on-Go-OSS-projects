@@ -12,6 +12,7 @@
 #### Official Docs
 - [ ] [godoc](https://godoc.org/github.com/prometheus/prometheus)
 - [ ] [Internal Architecture](https://github.com/prometheus/prometheus/blob/master/documentation/internal_architecture.md)
+  - the server [runs all components](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L366-L598) in an [actor-like model](https://www.brianstorti.com/the-actor-model/), using [`github.com/oklog/oklog/pkg/group`](https://godoc.org/github.com/oklog/run) to coordinate the startup and shutdown of all interconnected actors. Multiple channels are used to enforce ordering constraints, such as not enabling the web interface before the storage is ready and the initial configuration file load has happened.
 - [x] [Service Discovery Docs](https://github.com/prometheus/prometheus/blob/master/discovery/README.md)
   - Prometheus will call the Run() method on a provider to initialize the discovery mechanism. The mechanism will then send all the target groups into the channel. Now the mechanism will watch for changes. For each update it can send all target groups, or only changed and new target groups, down the channel. Manager will handle both cases.
 - [x] [swagger](https://github.com/prometheus/prometheus/blob/master/documentation/dev/api/swagger.json) 
