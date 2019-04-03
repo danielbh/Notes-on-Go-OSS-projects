@@ -105,7 +105,7 @@ so first thing to understand is what is meant by:
   - [we apply the discoveryManagerNotify config here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L326)
   - [config is generated here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L317-L325)
 
-  - [ ] Make a plan that is aligned with desired spec of displaying in UI
-  - [ ] backend
-  - [ ] frontend
-  - [ ] submit PR
+ - [ ] Make a plan that is aligned with desired spec of displaying in UI
+ - [ ] backend
+ - [ ] frontend
+ - [ ] submit PR
