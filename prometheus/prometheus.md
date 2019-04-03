@@ -101,6 +101,7 @@ so first thing to understand is what is meant by:
   - The notifier discovery manager is a [`discovery.Manager`](https://github.com/prometheus/prometheus/blob/v2.3.1/discovery/manager.go#L73-L89) that uses Prometheus's service discovery functionality to find and continuously update the list of Alertmanager instances that the notifier should send alerts to. It runs independently of the notifier manager and feeds it with a stream of target group updates over a [synchronization channel](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L587).
   - definition of [disoveryManagerNotify](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L242-L243)
   - It is passsed a context for notify. [Context is found here](https://golang.org/pkg/context/). 
+  - It is [implemented here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L409-L419) and given cancel when it is terminated
 
   - [ ] Make a plan that is aligned with desired spec of displaying in UI
   - [ ] backend
