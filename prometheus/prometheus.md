@@ -105,18 +105,21 @@ so first thing to understand is what is meant by:
   - [we apply the discoveryManagerNotify config here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L326)
   - [config is generated here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L317-L325)
   
-  #### More background
+  #### Implementation Plan
   
-  A plan is beginning to form on how I would integrate this. First let's start with the files concerned, that give insight into the implementation that will demonstrate what would be the most consistent with existing patterns.
+  A plan is beginning to form on how I would integrate this. First let's start with the files concernet that give insight into the implementation that would be most consistent with existing patterns.
   
-  - [scrape/manager.go](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go)
-    - TargetsAll()
-  - [scrape/scrape.go](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go)
+  - [/scrape/manager.go](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go)
+    - [TargetsAll()](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L209)
+  - [/scrape/scrape.go](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go)
     - [ActiveTargets()](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go)
     - [DroppedTargets()](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go#L249)
-  - [
-  
-  
+  - [/notifier/notifier.go](https://github.com/prometheus/prometheus/blob/master/notifier/notifier.go)
+    - [DroppedAlertManagers()](https://github.com/prometheus/prometheus/blob/master/notifier/notifier.go#L432)
+    - [AlertManagers()](https://github.com/prometheus/prometheus/blob/master/notifier/notifier.go#L413)
+  - [/web/web.go](https://github.com/prometheus/prometheus/blob/master/web/web.go)
+    - [ServiceDiscovery()](https://github.com/prometheus/prometheus/blob/master/web/web.go#L668)
+  - [/web/ui/templates/service-discovery.html](https://github.com/prometheus/prometheus/blob/master/web/ui/templates/service-discovery.html)
   
   #### plan to interfrate notifier sd into UI
 
