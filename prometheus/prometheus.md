@@ -105,7 +105,7 @@ so first thing to understand is what is meant by:
   - [we apply the discoveryManagerNotify config here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L326)
   - [config is generated here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L317-L325)
   
-  #### plan to interfrate notifier sd into UI
+  #### plan to integrate notifier sd into UI
 
   - [ ] Make a plan that is aligned with desired spec of displaying in UI
   
@@ -125,6 +125,7 @@ so first thing to understand is what is meant by:
   
   There appears to be parity between scrape.go and notifier.go wrt exporting Dropped and Active "Targets" even though they aren't called the same thing. It would make sense to have a function called AlertManagersAll() that exports all the active and dropped targets in the same way TargetsAll() does. At that point they can be merged into the data model that is then merged into the service-discovery html template.
   
+  - [ ] tests
   - [ ] backend
   - [ ] frontend
   - [ ] submit PR
