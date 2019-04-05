@@ -45,7 +45,7 @@ so first thing to understand is what is meant by:
 
 - [x] setup sd with alert manager locally to observe difference in UI https://prometheus.io/docs/prometheus/latest/migration/#alertmanager-service-discovery see if you can combine it with... https://prometheus.io/docs/guides/file-sd/
 
-- [ ] Observe how targets are added to the UI. This is important because we must understand how they are added so that we can cleanly add the alertmanager sd targets.
+- [x] Observe how targets are added to the UI. This is important because we must understand how they are added so that we can cleanly add the alertmanager sd targets.
   - [here is http handler for web UI of /service-discovery](https://github.com/prometheus/prometheus/blob/master/web/web.go#L287) where it is wrapped in a readf() to test if it's ready
   - the generic handler used in this project is defined [here](https://github.com/prometheus/prometheus/blob/master/web/web.go#L667): It is mounted on a [handler struct](https://github.com/prometheus/prometheus/blob/master/web/web.go#L115), which creates a rather interesting pattern. Each http handler is mounted on this struct which makes available many great utilities, this includes things like, managers (ruleManager, scrapManager): that "manage important functionality". There there is an [options struct](https://github.com/prometheus/prometheus/blob/master/web/web.go#L165) that can be added to this to add config to the handler instance. In any case a lot of time could be spent here as the code here is quite dense.
   
@@ -105,9 +105,11 @@ so first thing to understand is what is meant by:
   - [we apply the discoveryManagerNotify config here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L326)
   - [config is generated here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L317-L325)
   
-  #### Implementation Plan
+  #### plan to interfrate notifier sd into UI
+
+  - [ ] Make a plan that is aligned with desired spec of displaying in UI
   
-  A plan is beginning to form on how I would integrate this. First let's start with the files concernet that give insight into the implementation that would be most consistent with existing patterns.
+    A plan is beginning to form on how I would integrate this. First let's start with the files concernet that give insight into the implementation that would be most consistent with existing patterns.
   
   - [/scrape/manager.go](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go)
     - [TargetsAll()](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go#L209)
@@ -121,9 +123,8 @@ so first thing to understand is what is meant by:
     - [ServiceDiscovery()](https://github.com/prometheus/prometheus/blob/master/web/web.go#L668)
   - [/web/ui/templates/service-discovery.html](https://github.com/prometheus/prometheus/blob/master/web/ui/templates/service-discovery.html)
   
-  #### plan to interfrate notifier sd into UI
-
-  - [ ] Make a plan that is aligned with desired spec of displaying in UI
+  There appears to be parity between scrape.go and notifier.go wrt exporting Dropped and Active "Targets" even though they aren't called the same thing. It would make sense to have a function called AlertManagersAll() that exports all the active and dropped targets in the same way TargetsAll() does. At that point they can be merged into the data model that is then merged into the service-discovery html template.
+  
   - [ ] backend
   - [ ] frontend
   - [ ] submit PR
