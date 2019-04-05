@@ -105,6 +105,19 @@ so first thing to understand is what is meant by:
   - [we apply the discoveryManagerNotify config here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L326)
   - [config is generated here](https://github.com/prometheus/prometheus/blob/v2.3.1/cmd/prometheus/main.go#L317-L325)
   
+  #### More background
+  
+  A plan is beginning to form on how I would integrate this. First let's start with the files concerned, that give insight into the implementation that will demonstrate what would be the most consistent with existing patterns.
+  
+  - [scrape/manager.go](https://github.com/prometheus/prometheus/blob/master/scrape/manager.go)
+    - TargetsAll()
+  - [scrape/scrape.go](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go)
+    - [ActiveTargets()](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go)
+    - [DroppedTargets()](https://github.com/prometheus/prometheus/blob/master/scrape/scrape.go#L249)
+  - [
+  
+  
+  
   #### plan to interfrate notifier sd into UI
 
   - [ ] Make a plan that is aligned with desired spec of displaying in UI
